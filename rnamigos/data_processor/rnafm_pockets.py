@@ -1,5 +1,9 @@
 import os
 
+# Set custom data path for rnaglib BEFORE importing rnaglib modules
+# Use full expanded path to avoid tilde expansion issues
+os.environ['RNAGLIB_DATA'] = os.path.expanduser('~/scratch/.rnaglib')
+
 import networkx as nx
 import numpy as np
 from pathlib import Path
@@ -12,6 +16,7 @@ from rnaglib.data_loading import RNADataset
 
 # grab the RNAs
 pockets_dir = "data/json_pockets_expanded"
+# Pass explicit data_root with expanded path to avoid ~ issues
 dset = RNADataset(redundancy="all", in_memory=False)
 t = RNAFMTransform()
 
@@ -20,6 +25,8 @@ def get_pocket_embs():
     out_dir = "data/pocket_embeddings"
     os.makedirs(out_dir, exist_ok=True)
     emb_cache = {}
+    skipped_pockets = []
+    
     for pocket in tqdm(os.listdir(pockets_dir)):
         outname = os.path.join(out_dir, f"{Path(pocket).stem}.npz")
         if os.path.exists(outname):
@@ -27,6 +34,8 @@ def get_pocket_embs():
         g = load_json(Path(pockets_dir) / pocket)
         pocket_embs = {}
         embs_list, missing_nodes = [], []
+        pocket_failed = False
+        
         for node in g.nodes():
             pdbid, chain, pos = node.split(".")
 
@@ -34,29 +43,52 @@ def get_pocket_embs():
             try:
                 g = emb_cache[pdbid]
             except KeyError:
-                g = dset.get_pdbid(pdbid)
                 try:
-                    emb_cache[pdbid] = t(g)
-                except IndexError:
+                    g = dset.get_pdbid(pdbid)
+                    try:
+                        emb_cache[pdbid] = t(g)
+                    except IndexError:
+                        print(f"Warning: IndexError for PDB {pdbid}, skipping pocket {pocket}")
+                        skipped_pockets.append(pocket)
+                        pocket_failed = True
+                        break
+                except KeyError:
+                    print(f"Warning: PDB {pdbid} not found in dataset, skipping pocket {pocket}")
+                    skipped_pockets.append(pocket)
+                    pocket_failed = True
                     break
+        
+        if pocket_failed:
+            continue
 
             # try to get a node's embedding and remember if it was mising
             try:
                 z = g["rna"].nodes[node]["rnafm"]
             except KeyError:
                 missing_nodes.append(node)
+                continue
 
+            # Convert to tensor if it's not already
+            if not isinstance(z, torch.Tensor):
+                z = torch.from_numpy(z) if isinstance(z, np.ndarray) else torch.tensor(z)
+            
             pocket_embs[node] = z
             embs_list.append(z)
             pass
 
         # fill in missing nodes with mean embedding
-        if missing_nodes:
+        if missing_nodes and len(embs_list) > 0:
             mean_emb = torch.mean(torch.stack(embs_list), dim=0)
             for node in missing_nodes:
                 pocket_embs[node] = mean_emb
         # finally dump
-        np.savez(outname, **pocket_embs)
+        if len(pocket_embs) > 0:
+            np.savez(outname, **pocket_embs)
+    
+    if skipped_pockets:
+        print(f"\nSkipped {len(skipped_pockets)} pockets due to missing PDB IDs:")
+        for pocket in skipped_pockets:
+            print(f"  - {pocket}")
 
 
 # Sometimes, we need more than only the pockets, in particular in the context of pocket perturbations
@@ -78,6 +110,6 @@ def get_relevant_chain_embs():
 
 
 if __name__ == "__main__":
-    pass
-    # get_pocket_embs()
-    get_relevant_chain_embs()
+    # pass
+    get_pocket_embs()
+    # get_relevant_chain_embs()

@@ -14,6 +14,8 @@ from rnaglib.utils import load_json
 from rnaglib.transforms import RNAFMTransform
 from rnaglib.data_loading import RNADataset
 
+OBSOLETE = {"4p95": "6gyv"}
+
 # grab the RNAs
 pockets_dir = "data/json_pockets_expanded"
 # Pass explicit data_root with expanded path to avoid ~ issues
@@ -102,7 +104,11 @@ def get_relevant_chain_embs():
         outname = os.path.join(out_dir, f"{pdbid}.npz")
         if os.path.exists(outname):
             continue
-        g = dset.get_pdbid(pdbid)
+        try:
+            g = dset.get_pdbid(pdbid)
+        except KeyError:
+            g = dset.get_pdbid(OBSOLETE[pdbid.lower()])
+
         annotated = t(g)
         node_dict = nx.get_node_attributes(annotated['rna'], 'rnafm')
         node_dict = {k: np.asarray(v) for k, v in node_dict.items()}

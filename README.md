@@ -16,8 +16,8 @@ This minimal structure includes:
 ### 1. Install Dependencies
 
 ```bash
-git clone https://github.com/cgoliver/rnamigos2.git
-cd rnamigos2/
+git clone git@github.com:xwang112358/rnamigos2_mcp.git
+cd rnamigo2_minimal/
 conda create -n rnamigos2 python=3.10
 conda activate rnamigos2
 pip install numpy==1.26
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ### 2. Verify Installation
 
-You can test the installation by running inference on the example files:
+You can test the installation by running inference on the example files, according tp `test.py`:
 
 ```python
 from rnamigos.inference import do_inference

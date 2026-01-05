@@ -87,23 +87,4 @@ Place your SMILES files in `inputs/ligands/`. Each file should contain one SMILE
 
 See `inputs/README.md` for detailed format requirements.
 
-## Running Inference
-
-### Python API
-
-```python
-from rnamigos.inference import do_inference
-
-# Using example files
-results = do_inference(
-    cif_path="data/sample_files/3ox0.cif",
-    residue_list=["A.7", "A.8", "A.25", "A.26"],
-    ligands_path="data/sample_files/test_smiles.txt",
-    out_path="outputs/results.csv",
-    do_mixing=True,          # Combine scores from multiple models
-    dump_all=False           # If True, include all model scores
-)
-
-print(results.head())
-```
 

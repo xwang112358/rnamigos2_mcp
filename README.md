@@ -16,7 +16,7 @@ This minimal structure includes:
 ### 1. Install Dependencies
 
 ```bash
-git clone git@github.com:xwang112358/rnamigos2_mcp.git
+git clone --branch only_inference git@github.com:xwang112358/rnamigos2_mcp.git 
 cd rnamigo2_minimal/
 conda create -n rnamigos2 python=3.10
 conda activate rnamigos2

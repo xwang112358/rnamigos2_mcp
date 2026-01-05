@@ -1,0 +1,1184 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "in_pocket": true,
+      "nt_code": "C",
+      "id": "2gdi.Y.74"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.75"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "C",
+      "id": "2gdi.Y.73"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.65"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.47"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.48"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.46"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "G",
+      "id": "2gdi.Y.19"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.61"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.62"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.60"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "G",
+      "id": "2gdi.Y.72"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "U",
+      "id": "2gdi.Y.71"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.82"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.83"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.81"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "C",
+      "id": "2gdi.Y.57"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.38"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "U",
+      "id": "2gdi.Y.39"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.37"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "G",
+      "id": "2gdi.Y.21"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.78"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.79"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.77"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.24"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.25"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.23"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.45"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.49"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.50"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.17"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.68"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.69"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.67"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.51"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.15"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.80"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "A",
+      "id": "2gdi.Y.43"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.44"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "G",
+      "id": "2gdi.Y.42"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "A",
+      "id": "2gdi.Y.41"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "G",
+      "id": "2gdi.Y.40"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.55"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.56"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.54"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.70"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.22"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "U",
+      "id": "2gdi.Y.20"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.76"
+    },
+    {
+      "in_pocket": true,
+      "nt_code": "C",
+      "id": "2gdi.Y.58"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.59"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.84"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.85"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.16"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.53"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.66"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "U",
+      "id": "2gdi.Y.64"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.36"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "A",
+      "id": "2gdi.Y.35"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "C",
+      "id": "2gdi.Y.63"
+    },
+    {
+      "in_pocket": false,
+      "nt_code": "G",
+      "id": "2gdi.Y.18"
+    }
+  ],
+  "links": [
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.74",
+      "target": "2gdi.Y.75"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.74",
+      "target": "2gdi.Y.73"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.74",
+      "target": "2gdi.Y.65"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.75",
+      "target": "2gdi.Y.76"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.75",
+      "target": "2gdi.Y.74"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.75",
+      "target": "2gdi.Y.64"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.73",
+      "target": "2gdi.Y.74"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.73",
+      "target": "2gdi.Y.72"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.73",
+      "target": "2gdi.Y.66"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.65",
+      "target": "2gdi.Y.66"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.65",
+      "target": "2gdi.Y.64"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.65",
+      "target": "2gdi.Y.74"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.47",
+      "target": "2gdi.Y.48"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.47",
+      "target": "2gdi.Y.46"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.47",
+      "target": "2gdi.Y.19"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.48",
+      "target": "2gdi.Y.49"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.48",
+      "target": "2gdi.Y.47"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.48",
+      "target": "2gdi.Y.18"
+    },
+    {
+      "LW": "cSS",
+      "source": "2gdi.Y.48",
+      "target": "2gdi.Y.41"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.46",
+      "target": "2gdi.Y.47"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.46",
+      "target": "2gdi.Y.45"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.19",
+      "target": "2gdi.Y.20"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.19",
+      "target": "2gdi.Y.18"
+    },
+    {
+      "LW": "tSS",
+      "source": "2gdi.Y.19",
+      "target": "2gdi.Y.42"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.19",
+      "target": "2gdi.Y.47"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.61",
+      "target": "2gdi.Y.62"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.61",
+      "target": "2gdi.Y.60"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.62",
+      "target": "2gdi.Y.63"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.62",
+      "target": "2gdi.Y.61"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.60",
+      "target": "2gdi.Y.61"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.60",
+      "target": "2gdi.Y.59"
+    },
+    {
+      "LW": "cWH",
+      "source": "2gdi.Y.60",
+      "target": "2gdi.Y.78"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.72",
+      "target": "2gdi.Y.73"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.72",
+      "target": "2gdi.Y.71"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.71",
+      "target": "2gdi.Y.72"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.71",
+      "target": "2gdi.Y.70"
+    },
+    {
+      "LW": "cSS",
+      "source": "2gdi.Y.71",
+      "target": "2gdi.Y.21"
+    },
+    {
+      "LW": "tHW",
+      "source": "2gdi.Y.71",
+      "target": "2gdi.Y.67"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.82",
+      "target": "2gdi.Y.83"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.82",
+      "target": "2gdi.Y.81"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.82",
+      "target": "2gdi.Y.57"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.83",
+      "target": "2gdi.Y.84"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.83",
+      "target": "2gdi.Y.82"
+    },
+    {
+      "LW": "tSH",
+      "source": "2gdi.Y.83",
+      "target": "2gdi.Y.56"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.81",
+      "target": "2gdi.Y.82"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.81",
+      "target": "2gdi.Y.80"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.81",
+      "target": "2gdi.Y.58"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.57",
+      "target": "2gdi.Y.58"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.57",
+      "target": "2gdi.Y.56"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.57",
+      "target": "2gdi.Y.82"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.38",
+      "target": "2gdi.Y.39"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.38",
+      "target": "2gdi.Y.37"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.38",
+      "target": "2gdi.Y.21"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.39",
+      "target": "2gdi.Y.40"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.39",
+      "target": "2gdi.Y.38"
+    },
+    {
+      "LW": "tWH",
+      "source": "2gdi.Y.39",
+      "target": "2gdi.Y.43"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.37",
+      "target": "2gdi.Y.38"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.37",
+      "target": "2gdi.Y.36"
+    },
+    {
+      "LW": "tSW",
+      "source": "2gdi.Y.37",
+      "target": "2gdi.Y.69"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.37",
+      "target": "2gdi.Y.22"
+    },
+    {
+      "LW": "tSW",
+      "source": "2gdi.Y.37",
+      "target": "2gdi.Y.24"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.21",
+      "target": "2gdi.Y.22"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.21",
+      "target": "2gdi.Y.20"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.21",
+      "target": "2gdi.Y.38"
+    },
+    {
+      "LW": "cSS",
+      "source": "2gdi.Y.21",
+      "target": "2gdi.Y.71"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.78",
+      "target": "2gdi.Y.79"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.78",
+      "target": "2gdi.Y.77"
+    },
+    {
+      "LW": "cHW",
+      "source": "2gdi.Y.78",
+      "target": "2gdi.Y.60"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.79",
+      "target": "2gdi.Y.80"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.79",
+      "target": "2gdi.Y.78"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.77",
+      "target": "2gdi.Y.78"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.77",
+      "target": "2gdi.Y.76"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.24",
+      "target": "2gdi.Y.25"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.24",
+      "target": "2gdi.Y.23"
+    },
+    {
+      "LW": "tWS",
+      "source": "2gdi.Y.24",
+      "target": "2gdi.Y.37"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.25",
+      "target": "2gdi.Y.24"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.25",
+      "target": "2gdi.Y.35"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.23",
+      "target": "2gdi.Y.24"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.23",
+      "target": "2gdi.Y.22"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.23",
+      "target": "2gdi.Y.36"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.45",
+      "target": "2gdi.Y.46"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.45",
+      "target": "2gdi.Y.44"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.45",
+      "target": "2gdi.Y.20"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.49",
+      "target": "2gdi.Y.50"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.49",
+      "target": "2gdi.Y.48"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.49",
+      "target": "2gdi.Y.17"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.50",
+      "target": "2gdi.Y.51"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.50",
+      "target": "2gdi.Y.49"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.50",
+      "target": "2gdi.Y.16"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.17",
+      "target": "2gdi.Y.18"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.17",
+      "target": "2gdi.Y.16"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.17",
+      "target": "2gdi.Y.49"
+    },
+    {
+      "LW": "tSS",
+      "source": "2gdi.Y.17",
+      "target": "2gdi.Y.56"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.68",
+      "target": "2gdi.Y.69"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.68",
+      "target": "2gdi.Y.67"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.69",
+      "target": "2gdi.Y.70"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.69",
+      "target": "2gdi.Y.68"
+    },
+    {
+      "LW": "tWS",
+      "source": "2gdi.Y.69",
+      "target": "2gdi.Y.37"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.67",
+      "target": "2gdi.Y.68"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.67",
+      "target": "2gdi.Y.66"
+    },
+    {
+      "LW": "tWH",
+      "source": "2gdi.Y.67",
+      "target": "2gdi.Y.71"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.51",
+      "target": "2gdi.Y.50"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.51",
+      "target": "2gdi.Y.15"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.15",
+      "target": "2gdi.Y.16"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.15",
+      "target": "2gdi.Y.51"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.80",
+      "target": "2gdi.Y.81"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.80",
+      "target": "2gdi.Y.79"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.80",
+      "target": "2gdi.Y.59"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.43",
+      "target": "2gdi.Y.44"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.43",
+      "target": "2gdi.Y.42"
+    },
+    {
+      "LW": "tHW",
+      "source": "2gdi.Y.43",
+      "target": "2gdi.Y.39"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.44",
+      "target": "2gdi.Y.45"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.44",
+      "target": "2gdi.Y.43"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.42",
+      "target": "2gdi.Y.43"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.42",
+      "target": "2gdi.Y.41"
+    },
+    {
+      "LW": "tSS",
+      "source": "2gdi.Y.42",
+      "target": "2gdi.Y.19"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.41",
+      "target": "2gdi.Y.42"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.41",
+      "target": "2gdi.Y.40"
+    },
+    {
+      "LW": "cSS",
+      "source": "2gdi.Y.41",
+      "target": "2gdi.Y.48"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.40",
+      "target": "2gdi.Y.41"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.40",
+      "target": "2gdi.Y.39"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.55",
+      "target": "2gdi.Y.56"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.55",
+      "target": "2gdi.Y.54"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.56",
+      "target": "2gdi.Y.57"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.56",
+      "target": "2gdi.Y.55"
+    },
+    {
+      "LW": "tHS",
+      "source": "2gdi.Y.56",
+      "target": "2gdi.Y.83"
+    },
+    {
+      "LW": "tSS",
+      "source": "2gdi.Y.56",
+      "target": "2gdi.Y.17"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.54",
+      "target": "2gdi.Y.55"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.54",
+      "target": "2gdi.Y.53"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.70",
+      "target": "2gdi.Y.71"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.70",
+      "target": "2gdi.Y.69"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.22",
+      "target": "2gdi.Y.23"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.22",
+      "target": "2gdi.Y.21"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.22",
+      "target": "2gdi.Y.37"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.20",
+      "target": "2gdi.Y.21"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.20",
+      "target": "2gdi.Y.19"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.20",
+      "target": "2gdi.Y.45"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.76",
+      "target": "2gdi.Y.77"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.76",
+      "target": "2gdi.Y.75"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.76",
+      "target": "2gdi.Y.63"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.58",
+      "target": "2gdi.Y.59"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.58",
+      "target": "2gdi.Y.57"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.58",
+      "target": "2gdi.Y.81"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.59",
+      "target": "2gdi.Y.60"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.59",
+      "target": "2gdi.Y.58"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.59",
+      "target": "2gdi.Y.80"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.84",
+      "target": "2gdi.Y.85"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.84",
+      "target": "2gdi.Y.83"
+    },
+    {
+      "LW": "cSS",
+      "source": "2gdi.Y.84",
+      "target": "2gdi.Y.16"
+    },
+    {
+      "LW": "tHH",
+      "source": "2gdi.Y.84",
+      "target": "2gdi.Y.53"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.85",
+      "target": "2gdi.Y.84"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.16",
+      "target": "2gdi.Y.17"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.16",
+      "target": "2gdi.Y.15"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.16",
+      "target": "2gdi.Y.50"
+    },
+    {
+      "LW": "cSS",
+      "source": "2gdi.Y.16",
+      "target": "2gdi.Y.84"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.53",
+      "target": "2gdi.Y.54"
+    },
+    {
+      "LW": "tHH",
+      "source": "2gdi.Y.53",
+      "target": "2gdi.Y.84"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.66",
+      "target": "2gdi.Y.67"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.66",
+      "target": "2gdi.Y.65"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.66",
+      "target": "2gdi.Y.73"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.64",
+      "target": "2gdi.Y.65"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.64",
+      "target": "2gdi.Y.63"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.64",
+      "target": "2gdi.Y.75"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.36",
+      "target": "2gdi.Y.37"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.36",
+      "target": "2gdi.Y.35"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.36",
+      "target": "2gdi.Y.23"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.35",
+      "target": "2gdi.Y.36"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.35",
+      "target": "2gdi.Y.25"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.63",
+      "target": "2gdi.Y.64"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.63",
+      "target": "2gdi.Y.62"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.63",
+      "target": "2gdi.Y.76"
+    },
+    {
+      "LW": "B53",
+      "source": "2gdi.Y.18",
+      "target": "2gdi.Y.19"
+    },
+    {
+      "LW": "B35",
+      "source": "2gdi.Y.18",
+      "target": "2gdi.Y.17"
+    },
+    {
+      "LW": "cWW",
+      "source": "2gdi.Y.18",
+      "target": "2gdi.Y.48"
+    }
+  ]
+}

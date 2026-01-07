@@ -128,6 +128,58 @@ def do_inference(cif_path,
     return results_df
 
 
+def do_inference_single(cif_path,
+                       residue_list,
+                       smiles,
+                       model=None,
+                       models_path=None,
+                       ligand_cache=None,
+                       use_ligand_cache=False,
+                       score_column='dock'):
+    """
+    Run inference for a single SMILES string and return a scalar score.
+    
+    Note: This function does NOT support mixing scores since mixing uses ranking
+    across multiple SMILES, which doesn't make sense for a single molecule.
+    
+    Args:
+        cif_path: Path to CIF file
+        residue_list: List of residues
+        smiles: Single SMILES string
+        model: Optional model dict or model object
+        models_path: Optional path to models
+        ligand_cache: Optional ligand cache
+        use_ligand_cache: Whether to use ligand cache
+        score_column: Which score column to return. If None, returns the average of all model scores.
+                     Common options: 'is_native', 'dock', or a specific model name.
+    
+    Returns:
+        float: The score value for the input SMILES
+    """
+    # Load models (reuse existing function)
+    models = get_models(models_path=models_path, model=model)
+    
+    # Check RNA-FM requirement (reuse existing logic)
+    need_rna_fm = [model.encoder.in_dim == 644 for model in models.values()]
+    assert len(set(need_rna_fm)) == 1
+    
+    # Build graph (reuse existing function)
+    dgl_graph = get_dgl_graph(cif_path, residue_list, use_rnafm=need_rna_fm[0])
+    
+    # Run inference with single-item list
+    results_df = inference_raw(
+        dgl_graph=dgl_graph,
+        smiles_list=[smiles],
+        models=models,
+        ligand_cache=ligand_cache,
+        use_ligand_cache=use_ligand_cache
+    )
+    
+    # Return average of all specified score columns
+    score_values = [results_df[score_column].iloc[0]]
+    return float(np.mean(score_values))
+
+
 @hydra.main(version_base=None, config_path="conf", config_name="inference")
 def main(cfg: DictConfig):
     print(OmegaConf.to_yaml(cfg))

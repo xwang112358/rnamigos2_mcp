@@ -175,10 +175,11 @@ def get_dgl_graph(cif_path, residue_list, undirected=False, use_rnafm=False):
         except KeyError:
             buggy_nodes.append(node)
     nx_graph.remove_nodes_from(buggy_nodes)
-    logger.warning(
-        f"Conversion of mmCIF to graph by fr3d-python created {len(buggy_nodes)} residues with missing residue IDs. "
-        f"Removing {buggy_nodes} from the graph."
-    )
+    if len(buggy_nodes) > 0:
+        logger.warning(
+            f"Conversion of mmCIF to graph by fr3d-python created {len(buggy_nodes)} residues with missing residue IDs. "
+            f"Removing {buggy_nodes} from the graph."
+        )
 
     if use_rnafm:
         nx_graph = RNAFMTransform()({"rna": nx_graph})['rna']

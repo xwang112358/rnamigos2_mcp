@@ -582,7 +582,7 @@ def get_model_from_dirpath(saved_model_dir, tune=False, trial=None, return_cfg=F
     model = cfg_to_model(cfg, for_loading=True, tune=tune, trial=trial)
 
     # Load params and use eval()
-    state_dict = torch.load(Path(saved_model_dir, "model.pth"), map_location="cpu")["model_state_dict"]
+    state_dict = torch.load(Path(saved_model_dir, "model.pth"), map_location="cpu", weights_only=False)["model_state_dict"]
     model.load_state_dict(state_dict)
     model.eval()
     if return_cfg:

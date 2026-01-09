@@ -39,7 +39,7 @@ def rnamigos2_oracle(smi):
 screening_optimizer = Screening(
     smi_file='inputs/ligands/robin_smiles.txt',
     n_jobs=-1,
-    max_oracle_calls=5,
+    max_oracle_calls=1500,
     freq_log=100,    
     output_dir='opt_results/screening',
     log_results=True
@@ -47,9 +47,11 @@ screening_optimizer = Screening(
 
 
 # Run screening - it will randomly shuffle and evaluate molecules from the library
-screening_optimizer.optimize(
-    oracle=rnamigos2_oracle,  # Can be custom function or string like 'qed', 'sa', etc.
-    seed=1          # Random seed for reproducibility
-)
+# screening_optimizer.optimize(
+#     oracle=rnamigos2_oracle,  # Can be custom function or string like 'qed', 'sa', etc.
+#     seed=1          # Random seed for reproducibility
+# )
+
+screening_optimizer.production(oracle=rnamigos2_oracle, config=None, num_runs=5)
 
 

@@ -34,7 +34,7 @@ RDLogger.DisableLog('rdApp.warning')
 optimizer = GPBO(
     smi_file='inputs/ligands/robin_smiles.txt',  # Starting molecules for optimization
     n_jobs=-1,                                     # Use all available CPU cores
-    max_oracle_calls=1000,                         # Stop after 1000 oracle evaluations
+    max_oracle_calls=1500,                         # Stop after 1000 oracle evaluations
     freq_log=100,                                  # Log progress every 100 evaluations
     output_dir='opt_results/gp_bo'                 # Directory to save results
 )
@@ -134,4 +134,5 @@ optimizer = GPBO(
 # ============================================================================
 # patience: Number of iterations without improvement before stopping early
 # seed: Random seed for reproducibility
-optimizer.optimize(oracle=tpp_rnamigos2_oracle, patience=50, seed=0)
+# optimizer.optimize(oracle=tpp_rnamigos2_oracle, patience=50, seed=0)
+optimizer.production(oracle=tpp_rnamigos2_oracle, config=None, num_runs=5)

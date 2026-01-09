@@ -68,7 +68,7 @@ optimizer = REINVENT(
     smi_file="inputs/ligands/robin_smiles.txt",   # REINVENT generates from scratch, doesn't need starting molecules
                                            # Set to a file path if you want to seed the experience replay buffer
     n_jobs=1,                              # REINVENT uses sequential RNN generation (no parallelization)
-    max_oracle_calls=1000,                 # Stop after 1000 oracle evaluations
+    max_oracle_calls=1500,                 # Stop after 1000 oracle evaluations
     freq_log=100,                          # Log progress every 100 evaluations
     output_dir='opt_results/reinvent'      # Directory to save results
 )
@@ -174,4 +174,5 @@ optimizer = REINVENT(
 # ============================================================================
 # patience: Number of iterations without improvement before stopping early (50 iterations)
 # seed: Random seed for reproducibility (0)
-optimizer.optimize(oracle=tpp_rnamigos2_oracle, patience=50, seed=0)
+# optimizer.optimize(oracle=tpp_rnamigos2_oracle, patience=50, seed=0)
+optimizer.production(oracle=tpp_rnamigos2_oracle, config=None, num_runs=5)

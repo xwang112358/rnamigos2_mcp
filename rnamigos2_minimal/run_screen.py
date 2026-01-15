@@ -1,3 +1,4 @@
+import argparse
 from molopt.graph_ga import GraphGA
 from molopt.screening import Screening
 from rdkit import Chem
@@ -23,35 +24,44 @@ def rnamigos2_oracle(smi):
     return score
 
 
-# ============================================================================
-# SCREENING OPTIMIZER EXAMPLE
-# ============================================================================
-# Screening is a baseline optimizer that simply evaluates molecules from a 
-# provided library in random order (no actual optimization/generation).
-# Use this as a baseline to compare against generative methods like GraphGA.
-# - smi_file: Path to file containing SMILES strings to screen (one per line)
-# - n_jobs: Number of parallel processes for evaluation
-# - max_oracle_calls: Maximum number of molecules to evaluate before stopping
-# - freq_log: How often (in oracle calls) to log progress
-# - output_dir: Directory to save results and logs
-# - log_results: Whether to save detailed results to disk
+if __name__ == '__main__':
+    # ============================================================================
+    # Parse Command-Line Arguments
+    # ============================================================================
+    parser = argparse.ArgumentParser(description='Run Screening baseline for RNA-ligand binding')
+    parser.add_argument('--smi_file', type=str, default='inputs/ligands/robin_smiles.txt',
+                        help='Path to SMILES file with molecules to screen')
+    parser.add_argument('--max_oracle_calls', type=int, default=10000,
+                        help='Maximum number of oracle evaluations (default: 10000)')
+    parser.add_argument('--output_dir', type=str, default='opt_results/screening',
+                        help='Directory to save results (default: opt_results/screening)')
+    parser.add_argument('--num_runs', type=int, default=1,
+                        help='Number of independent runs (default: 1)')
+    parser.add_argument('--n_jobs', type=int, default=-1,
+                        help='Number of parallel jobs, -1 for all cores (default: -1)')
+    parser.add_argument('--freq_log', type=int, default=100,
+                        help='Logging frequency (default: 100)')
+    args = parser.parse_args()
 
-screening_optimizer = Screening(
-    smi_file='inputs/ligands/robin_smiles.txt',
-    n_jobs=-1,
-    max_oracle_calls=1500,
-    freq_log=100,    
-    output_dir='opt_results/screening',
-    log_results=True
-)
+    # ============================================================================
+    # Initialize Screening Optimizer
+    # ============================================================================
+    # Screening is a baseline optimizer that simply evaluates molecules from a 
+    # provided library in random order (no actual optimization/generation).
+    # Use this as a baseline to compare against generative methods.
+    
+    screening_optimizer = Screening(
+        smi_file=args.smi_file,
+        n_jobs=args.n_jobs,
+        max_oracle_calls=args.max_oracle_calls,
+        freq_log=args.freq_log,    
+        output_dir=args.output_dir,
+        log_results=True
+    )
 
-
-# Run screening - it will randomly shuffle and evaluate molecules from the library
-# screening_optimizer.optimize(
-#     oracle=rnamigos2_oracle,  # Can be custom function or string like 'qed', 'sa', etc.
-#     seed=1          # Random seed for reproducibility
-# )
-
-screening_optimizer.production(oracle=rnamigos2_oracle, config=None, num_runs=5)
+    # ============================================================================
+    # Run Screening
+    # ============================================================================
+    screening_optimizer.production(oracle=rnamigos2_oracle, config=None, num_runs=args.num_runs)
 
 

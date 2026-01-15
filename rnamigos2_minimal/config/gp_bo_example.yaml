@@ -1,0 +1,26 @@
+# Example configuration for GP-BO (Gaussian Process Bayesian Optimization)
+# These override the default values from mol-opt-rna/molopt/gpbo/hparams_default.yaml
+
+# Initial population size - molecules evaluated before BO loop begins
+initial_population_size: 10000
+
+# GP training data selection
+n_train_gp_best: 2200      # Top-scoring molecules in GP training set
+n_train_gp_rand: 1350      # Random molecules added to GP training set
+
+# Bayesian optimization control
+max_bo_iter: 10000         # Maximum BO iterations
+bo_batch_size: 1180        # Molecules evaluated per BO iteration
+
+# Genetic algorithm settings (for optimizing acquisition function)
+ga_max_generations: 60     # GA generations per BO iteration
+ga_population_size: 820    # GA population size
+ga_offspring_size: 150     # New molecules per GA generation
+ga_mutation_rate: 0.01     # Mutation probability (1%)
+ga_pool_num_best: 250      # Top molecules seeding GA
+ga_pool_num_carryover: 250 # High-acquisition molecules carried over
+max_ga_start_population_size: 1000  # Max GA starting population
+
+# Molecular fingerprint parameters
+fp_radius: 2               # Morgan fingerprint radius
+fp_nbits: 4096             # Fingerprint bit vector length

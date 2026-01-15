@@ -1,0 +1,11 @@
+# Example configuration for SMILES GA (SMILES-based Genetic Algorithm)
+# These override the default values from mol-opt-rna/molopt/smiles_ga/hparams_default.yaml
+
+# Gene size - length of grammar encoding
+gene_size: 200
+
+# Population size - molecules maintained in population
+population_size: 10000
+
+# Number of mutations per generation
+n_mutations: 500

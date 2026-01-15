@@ -73,10 +73,6 @@ run_experiment() {
 echo "Running experiments..."
 echo ""
 
-# 1. Screening (baseline - evaluates molecules randomly)
-run_experiment "screening" \
-    "python run_screen.py --max_oracle_calls $MAX_CALLS --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/screening"
-
 # 2. Graph GA (graph-based genetic algorithm)
 run_experiment "graph_ga" \
     "python run_graphga.py --max_oracle_calls $MAX_CALLS --population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/graph_ga"
@@ -89,9 +85,15 @@ run_experiment "smiles_ga" \
 run_experiment "gp_bo" \
     "python run_gp_bo.py --max_oracle_calls $MAX_CALLS --initial_population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/gp_bo"
 
-# 5. REINVENT (Reinforcement Learning)
-run_experiment "reinvent" \
-    "python run_reinvent.py --max_oracle_calls $MAX_CALLS --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/reinvent"
+# # 5. REINVENT (Reinforcement Learning - no initial population, only optimization)
+# OPTIMIZATION_BUDGET=$((MAX_CALLS - INITIAL_POP))
+# run_experiment "reinvent" \
+#     "python run_reinvent.py --max_oracle_calls $OPTIMIZATION_BUDGET --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/reinvent"
+
+# # 1. Screening (baseline - evaluates molecules randomly, no initial population)
+# run_experiment "screening" \
+#     "python run_screen.py --max_oracle_calls $OPTIMIZATION_BUDGET --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/screening"
+
 
 # Calculate total elapsed time
 OVERALL_END=$(date +%s)
@@ -113,15 +115,21 @@ done
 echo ""
 echo "Configuration Summary:"
 echo "  Initial Population: $INITIAL_POP molecules"
-echo "  Max Oracle Calls: $MAX_CALLS per method"
+echo "  Max Oracle Calls (per method): $MAX_CALLS"
+echo "  Optimization Budget: $OPTIMIZATION_BUDGET oracle calls"
 echo "  Number of Runs: $NUM_RUNS per method"
 echo ""
-echo "Expected Oracle Usage:"
-echo "  - Screening: $MAX_CALLS calls (random evaluation)"
-echo "  - Graph GA: ~$INITIAL_POP initial + $((MAX_CALLS - INITIAL_POP)) evolution"
-echo "  - SMILES GA: ~$INITIAL_POP initial + $((MAX_CALLS - INITIAL_POP)) evolution"
-echo "  - GP-BO: ~$INITIAL_POP initial + $((MAX_CALLS - INITIAL_POP)) optimization"
-echo "  - REINVENT: $MAX_CALLS calls (generative, no initial pop)"
+echo "Fair Comparison - Oracle Usage:"
+echo "  Methods WITH initial population (use $MAX_CALLS total):"
+echo "    - Graph GA: $INITIAL_POP initial + $OPTIMIZATION_BUDGET evolution = $MAX_CALLS"
+echo "    - SMILES GA: $INITIAL_POP initial + $OPTIMIZATION_BUDGET evolution = $MAX_CALLS"
+echo "    - GP-BO: $INITIAL_POP initial + $OPTIMIZATION_BUDGET optimization = $MAX_CALLS"
+echo ""
+echo "  Methods WITHOUT initial population (use $OPTIMIZATION_BUDGET total):"
+echo "    - REINVENT: $OPTIMIZATION_BUDGET calls (generative)"
+echo "    - Screening: $OPTIMIZATION_BUDGET calls (random baseline)"
+echo ""
+echo "  All methods have equal optimization budget: $OPTIMIZATION_BUDGET oracle calls"
 echo ""
 echo "Output locations:"
 echo "  - Results: $RESULTS_DIR/"

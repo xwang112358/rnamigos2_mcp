@@ -1,0 +1,11 @@
+# Example configuration for Graph GA (Graph-based Genetic Algorithm)
+# These override the default values from mol-opt-rna/molopt/graph_ga/hparams_default.yaml
+
+# Population size - molecules maintained at each generation
+population_size: 10000
+
+# Offspring size - new molecules per generation
+offspring_size: 70
+
+# Mutation rate - probability of mutation per molecule
+mutation_rate: 0.067

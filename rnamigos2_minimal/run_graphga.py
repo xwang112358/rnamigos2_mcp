@@ -1,4 +1,6 @@
 import argparse
+import os
+import yaml
 from molopt.graph_ga import GraphGA
 from rdkit import RDLogger
 from oracle import rnamigos2_oracle as tpp_rnamigos2_oracle
@@ -42,7 +44,16 @@ if __name__ == '__main__':
     # ============================================================================
     # Run Optimization
     # ============================================================================
-    config = {'population_size': args.population_size}
-    optimizer.production(oracle=tpp_rnamigos2_oracle, config=config, num_runs=args.num_runs)
+    # Create config file if non-default population_size is used
+    if args.population_size != 120:
+        config_dict = {'population_size': args.population_size}
+        os.makedirs('config', exist_ok=True)
+        config_path = f'config/graph_ga_temp_{args.population_size}.yaml'
+        with open(config_path, 'w') as f:
+            yaml.dump(config_dict, f)
+        optimizer.production(oracle=tpp_rnamigos2_oracle, config=config_path, num_runs=args.num_runs)
+    else:
+        # Use default config
+        optimizer.production(oracle=tpp_rnamigos2_oracle, config=None, num_runs=args.num_runs)
 
 

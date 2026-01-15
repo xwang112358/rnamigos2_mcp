@@ -1,6 +1,8 @@
 
 
 import argparse
+import os
+import yaml
 from molopt.gpbo import GPBO
 from rdkit import RDLogger
 from oracle import rnamigos2_oracle as tpp_rnamigos2_oracle
@@ -44,5 +46,14 @@ if __name__ == '__main__':
     # ============================================================================
     # Run Optimization
     # ============================================================================
-    config = {'initial_population_size': args.initial_population_size}
-    optimizer.production(oracle=tpp_rnamigos2_oracle, config=config, num_runs=args.num_runs)
+    # Create config file if non-default initial_population_size is used
+    if args.initial_population_size != 340:
+        config_dict = {'initial_population_size': args.initial_population_size}
+        os.makedirs('config', exist_ok=True)
+        config_path = f'config/gp_bo_temp_{args.initial_population_size}.yaml'
+        with open(config_path, 'w') as f:
+            yaml.dump(config_dict, f)
+        optimizer.production(oracle=tpp_rnamigos2_oracle, config=config_path, num_runs=args.num_runs)
+    else:
+        # Use default config
+        optimizer.production(oracle=tpp_rnamigos2_oracle, config=None, num_runs=args.num_runs)

@@ -1,85 +1,114 @@
-"""
-REINVENT (Reinforcement Learning for Molecular Design) for RNA-ligand binding optimization.
-
-REINVENT Algorithm Overview:
-----------------------------
-REINVENT uses reinforcement learning to train a recurrent neural network (RNN) to 
-generate molecules with desired properties. Unlike genetic algorithms or Bayesian 
-optimization that start from existing molecules, REINVENT generates entirely new 
-molecules from scratch by learning to write SMILES strings character by character.
-
-Key Components:
-1. RNN-based Generator: A sequence-to-sequence model that generates SMILES strings
-   one character at a time, similar to language models generating text.
-
-2. Prior and Agent Models:
-   - Prior: Pre-trained RNN model that represents general valid chemistry
-   - Agent: Copy of Prior that gets fine-tuned to generate molecules for the task
-   - The Prior acts as a regularizer to keep Agent from generating invalid molecules
-
-3. Reinforcement Learning (Policy Gradients):
-   - Agent generates molecules → Oracle scores them → Agent learns to generate better ones
-   - Uses policy gradient methods to optimize the probability of high-scoring molecules
-   - Balances between exploring new molecules and exploiting known good ones
-
-4. Augmented Likelihood:
-   - Combines prior likelihood P(molecule|Prior) with oracle score
-   - Formula: Augmented = Prior_likelihood + sigma * Score
-   - This keeps Agent from deviating too far from valid chemistry
-   - Sigma controls the trade-off: higher = focus on score, lower = stay conservative
-
-5. Experience Replay:
-   - Stores high-scoring molecules found during training
-   - Periodically retrains on these stored examples
-   - Prevents "catastrophic forgetting" where Agent forgets good solutions
-   - Stabilizes training by mixing new samples with proven successes
-
-Key Differences from Other Methods:
------------------------------------
-- vs. Genetic Algorithms (GraphGA/SMILES GA):
-  * REINVENT is generative (creates new molecules) vs. GA is evolutionary (modifies existing)
-  * REINVENT doesn't need starting molecules (though can use them)
-  * REINVENT learns a model that improves over time vs. GA uses fixed operators
-  
-- vs. Bayesian Optimization (GP-BO):
-  * REINVENT generates molecules directly vs. BO searches fingerprint space
-  * REINVENT is more exploratory (can find very different molecules)
-  * BO is more efficient for local optimization around known molecules
-
-When to Use REINVENT:
-- Need diverse, novel molecular structures
-- Want to explore beyond the initial dataset
-- Have enough oracle budget for training (typically 5000+ evaluations)
-- Oracle is relatively fast (REINVENT needs many sequential evaluations)
-"""
-
 import argparse
 from molopt.reinvent import REINVENT
 from rdkit import RDLogger
+from rdkit import Chem
 from oracle import rnamigos2_oracle as tpp_rnamigos2_oracle
+from oracle import combined_rnamigos2_similarity_oracle
+from oracle import precompute_reference_fingerprints
 
 # Disable RDKit warnings for cleaner output
-RDLogger.DisableLog('rdApp.warning')
+RDLogger.DisableLog("rdApp.warning")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # ============================================================================
     # Parse Command-Line Arguments
     # ============================================================================
-    parser = argparse.ArgumentParser(description='Run REINVENT optimization for RNA-ligand binding')
-    parser.add_argument('--smi_file', type=str, default='inputs/ligands/robin_smiles.txt',
-                        help='Path to SMILES file to seed experience replay buffer')
-    parser.add_argument('--max_oracle_calls', type=int, default=10000,
-                        help='Maximum number of oracle evaluations (default: 10000)')
-    parser.add_argument('--output_dir', type=str, default='opt_results/reinvent',
-                        help='Directory to save results (default: opt_results/reinvent)')
-    parser.add_argument('--num_runs', type=int, default=1,
-                        help='Number of independent runs (default: 1)')
-    parser.add_argument('--n_jobs', type=int, default=1,
-                        help='Number of parallel jobs (REINVENT uses sequential generation, default: 1)')
-    parser.add_argument('--freq_log', type=int, default=100,
-                        help='Logging frequency (default: 100)')
+    parser = argparse.ArgumentParser(
+        description="Run REINVENT optimization for RNA-ligand binding"
+    )
+    parser.add_argument(
+        "--smi_file",
+        type=str,
+        default="inputs/ligands/robin_smiles.txt",
+        help="Path to SMILES file to seed experience replay buffer",
+    )
+    parser.add_argument(
+        "--max_oracle_calls",
+        type=int,
+        default=10000,
+        help="Maximum number of oracle evaluations (default: 10000)",
+    )
+    parser.add_argument(
+        "--output_dir",
+        type=str,
+        default="opt_results/reinvent",
+        help="Directory to save results (default: opt_results/reinvent)",
+    )
+    parser.add_argument(
+        "--num_runs",
+        type=int,
+        default=1,
+        help="Number of independent runs (default: 1)",
+    )
+    parser.add_argument(
+        "--n_jobs",
+        type=int,
+        default=1,
+        help="Number of parallel jobs (REINVENT uses sequential generation, default: 1)",
+    )
+    parser.add_argument(
+        "--freq_log", type=int, default=100, help="Logging frequency (default: 100)"
+    )
+
+    # Combined objective arguments
+    parser.add_argument(
+        "--use_combined_objective",
+        action="store_true",
+        help="Use combined binding + similarity objective",
+    )
+    parser.add_argument(
+        "--reference_file",
+        type=str,
+        default=None,
+        help="Path to reference SMILES file for similarity (default: use smi_file)",
+    )
+    parser.add_argument(
+        "--similarity_weight",
+        type=float,
+        default=0.3,
+        help="Weight for similarity objective (default: 0.3)",
+    )
+    parser.add_argument(
+        "--binding_weight",
+        type=float,
+        default=0.7,
+        help="Weight for binding objective (default: 0.7)",
+    )
     args = parser.parse_args()
+
+    # ============================================================================
+    # Load Reference Molecules for Combined Objective
+    # ============================================================================
+    reference_smiles = None
+    reference_fingerprints = None
+    if args.use_combined_objective:
+        # Determine which file to use for reference molecules
+        ref_file = args.reference_file if args.reference_file else args.smi_file
+
+        # Load reference SMILES
+        with open(ref_file, "r") as f:
+            reference_smiles = []
+            for line in f:
+                smi = line.strip()
+                if smi:  # Skip empty lines
+                    mol = Chem.MolFromSmiles(smi)
+                    if mol is not None:
+                        reference_smiles.append(Chem.MolToSmiles(mol))  # Canonicalize
+
+        print(f"Loaded {len(reference_smiles)} reference molecules from {ref_file}")
+
+        # Pre-compute reference fingerprints for efficiency
+        print("Pre-computing reference fingerprints...")
+        reference_fingerprints = precompute_reference_fingerprints(reference_smiles)
+        print(f"Pre-computed {len(reference_fingerprints)} reference fingerprints")
+        print(
+            f"Using combined objective: binding_weight={args.binding_weight}, similarity_weight={args.similarity_weight}"
+        )
+
+        # Modify output directory to indicate combined objective
+        if not args.output_dir.endswith("_combined"):
+            args.output_dir = args.output_dir.rstrip("/") + "_combined"
 
     # ============================================================================
     # Initialize REINVENT Optimizer
@@ -89,10 +118,26 @@ if __name__ == '__main__':
         n_jobs=args.n_jobs,
         max_oracle_calls=args.max_oracle_calls,
         freq_log=args.freq_log,
-        output_dir=args.output_dir
+        output_dir=args.output_dir,
     )
+
+    # ============================================================================
+    # Create Oracle Function
+    # ============================================================================
+    if args.use_combined_objective and reference_fingerprints:
+        # Create combined oracle with similarity penalty using pre-computed fingerprints
+        def oracle(smi):
+            return combined_rnamigos2_similarity_oracle(
+                smi=smi,
+                reference_fingerprints=reference_fingerprints,
+                similarity_weight=args.similarity_weight,
+                binding_weight=args.binding_weight,
+            )
+    else:
+        # Use standard RNAmigos2 oracle
+        oracle = tpp_rnamigos2_oracle
 
     # ============================================================================
     # Run Optimization
     # ============================================================================
-    optimizer.production(oracle=tpp_rnamigos2_oracle, config=None, num_runs=args.num_runs)
+    optimizer.production(oracle=oracle, config=None, num_runs=args.num_runs)

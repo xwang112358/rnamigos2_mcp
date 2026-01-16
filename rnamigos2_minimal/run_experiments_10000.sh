@@ -77,16 +77,16 @@ echo ""
 run_experiment "graph_ga" \
     "python run_graphga.py --max_oracle_calls $MAX_CALLS --population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/graph_ga"
 
-# 3. SMILES GA (SMILES-based genetic algorithm)
-run_experiment "smiles_ga" \
-    "python run_smiles_ga.py --max_oracle_calls $MAX_CALLS --population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/smiles_ga"
+# # 3. SMILES GA (SMILES-based genetic algorithm)
+# run_experiment "smiles_ga" \
+#     "python run_smiles_ga.py --max_oracle_calls $MAX_CALLS --population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/smiles_ga"
 
-# 4. GP-BO (Gaussian Process Bayesian Optimization)
-run_experiment "gp_bo" \
-    "python run_gp_bo.py --max_oracle_calls $MAX_CALLS --initial_population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/gp_bo"
+# # 4. GP-BO (Gaussian Process Bayesian Optimization)
+# run_experiment "gp_bo" \
+#     "python run_gp_bo.py --max_oracle_calls $MAX_CALLS --initial_population_size $INITIAL_POP --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/gp_bo"
 
 # # 5. REINVENT (Reinforcement Learning - no initial population, only optimization)
-# OPTIMIZATION_BUDGET=$((MAX_CALLS - INITIAL_POP))
+OPTIMIZATION_BUDGET=$((MAX_CALLS - INITIAL_POP))
 # run_experiment "reinvent" \
 #     "python run_reinvent.py --max_oracle_calls $OPTIMIZATION_BUDGET --num_runs $NUM_RUNS --output_dir ${RESULTS_DIR}/reinvent"
 

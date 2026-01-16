@@ -163,7 +163,7 @@ cython_debug/
 figs/
 toto.py
 
-outputs/
+display_outputs/
 oracle/
 rnamigos2_minimal/opt_results/
 mol-opt-rna

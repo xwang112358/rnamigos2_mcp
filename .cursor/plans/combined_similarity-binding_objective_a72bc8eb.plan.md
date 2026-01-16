@@ -4,25 +4,25 @@ overview: Implement a weighted sum approach to combine RNAmigos2 binding affinit
 todos:
   - id: add_similarity_functions
     content: Add similarity computation and combined oracle functions to oracle.py
-    status: pending
+    status: completed
   - id: update_graphga
     content: Add combined objective support to run_graphga.py
-    status: pending
+    status: completed
     dependencies:
       - add_similarity_functions
   - id: update_gpbo
     content: Add combined objective support to run_gp_bo.py
-    status: pending
+    status: completed
     dependencies:
       - add_similarity_functions
   - id: update_smiles_ga
     content: Add combined objective support to run_smiles_ga.py
-    status: pending
+    status: completed
     dependencies:
       - add_similarity_functions
   - id: update_reinvent
     content: Add combined objective support to run_reinvent.py
-    status: pending
+    status: completed
     dependencies:
       - add_similarity_functions
 ---

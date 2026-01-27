@@ -105,15 +105,17 @@ print("="*80)
 
 methods = ['graph_ga', 'gp_bo', 'reinvent', 'smiles_ga']
 seeds = [0, 1, 2, 3, 5]
-opt_results_base = Path('opt_results/first_run')
+opt_results_base = Path('opt_results/run_combined_sim')
+oracle_name = "oracle"
+topk = 500
 
 opt_smiles_dict = {}
 for method in methods:
     opt_smiles_dict[method] = []
     for seed in seeds:
-        csv_path = opt_results_base / method / f'results_{method}_rnamigos2_oracle_{seed}.csv'
+        csv_path = opt_results_base / method / f'results_{method}_{oracle_name}_{seed}.csv'
         if csv_path.exists():
-            df_method = pd.read_csv(csv_path).sort_values('rnamigos2_score', ascending=False).head(100)
+            df_method = pd.read_csv(csv_path).sort_values('rnamigos2_score', ascending=False).head(topk)
             opt_smiles_dict[method].extend(df_method['smiles'].tolist())
     print(f"{method}: {len(opt_smiles_dict[method])} molecules")
 
@@ -172,7 +174,7 @@ plt.tight_layout()
 os.makedirs('display_outputs/figures', exist_ok=True)
 
 # Save figure
-fig_path = 'display_outputs/figures/rna_features_comparison.png'
+fig_path = 'display_outputs/figures/rna_features_comparison_combined_sim.png'
 plt.savefig(fig_path, dpi=600, bbox_inches='tight')
 print(f"Figure saved to: {fig_path}")
 
